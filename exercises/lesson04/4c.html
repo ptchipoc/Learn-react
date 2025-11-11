@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+    <style>
+      .button-off{
+        background: rgb(255, 0, 0);
+        padding: 15px 25px;
+        border: none;
+        border-radius: 10px;
+      }
+
+      .button-on{
+        background: rgb(25, 135, 84);
+        padding: 15px 25px;
+        border: none;
+        border-radius: 10px;
+      }
+
+      .app-container{
+        display: flex;
+        justify-content: end;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      
+
+      function App() {
+        const [isButtonOn, setIsButtonOn] = React.useState(true);
+
+        function handleButton(){
+          setIsButtonOn(isButtonOn ? false : true);
+        }
+        return (
+          <div className="app-container">
+            <button
+              className= {isButtonOn ? 'button-on' : 'button-off'}
+              onClick={handleButton}
+            >
+              {isButtonOn ? 'ON' : 'OFF'}
+            </button>
+          </div>
+        )
+      }
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
