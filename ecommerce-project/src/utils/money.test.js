@@ -10,5 +10,5 @@ describe('formatMoney', () => {
   it('displays 2 decimals', () => {
     expect(formatMoney(100)).toBe('$1.00')
   })
-  
+
 })
